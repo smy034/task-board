@@ -1,0 +1,260 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  background: #f0f4f8;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 640px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  color: #2d3748;
+  letter-spacing: 0.05em;
+}
+
+/* --- 進捗バー --- */
+.progress {
+  margin-bottom: 16px;
+}
+
+#progress-text {
+  display: block;
+  font-size: 0.85rem;
+  color: #718096;
+  margin-bottom: 6px;
+  text-align: right;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #4299e1;
+  border-radius: 99px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+/* --- 問題カード --- */
+.question-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.question-text {
+  font-size: 1.15rem;
+  color: #2d3748;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  min-height: 3.4em;
+}
+
+/* --- 選択肢 --- */
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.choice-btn {
+  width: 100%;
+  padding: 14px 18px;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #2d3748;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.choice-btn:hover:not(:disabled) {
+  background: #ebf4ff;
+  border-color: #90cdf4;
+}
+
+.choice-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.choice-btn:disabled {
+  cursor: default;
+}
+
+.choice-btn.correct {
+  background: #f0fff4;
+  border-color: #48bb78;
+  color: #276749;
+  font-weight: bold;
+}
+
+.choice-btn.incorrect {
+  background: #fff5f5;
+  border-color: #fc8181;
+  color: #c53030;
+}
+
+/* --- フィードバック --- */
+.feedback {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.feedback.correct {
+  background: #f0fff4;
+  color: #276749;
+}
+
+.feedback.incorrect {
+  background: #fff5f5;
+  color: #c53030;
+}
+
+/* --- 次へボタン --- */
+.next-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: #4299e1;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.next-btn:hover {
+  background: #3182ce;
+}
+
+.next-btn:active {
+  transform: scale(0.98);
+}
+
+/* --- 結果画面 --- */
+.result-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 48px 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.result-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.result-card h2 {
+  font-size: 1.5rem;
+  color: #2d3748;
+  margin-bottom: 24px;
+}
+
+.score-label {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 8px;
+}
+
+.score {
+  font-size: 3.6rem;
+  font-weight: bold;
+  color: #e53e3e;
+  margin-bottom: 4px;
+  line-height: 1.1;
+}
+
+.score-fraction {
+  font-size: 0.95rem;
+  color: #718096;
+  margin-bottom: 16px;
+}
+
+.perfect-message {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #e53e3e;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  animation: pulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to   { transform: scale(1.05); }
+}
+
+.score-message {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.retry-btn {
+  padding: 14px 40px;
+  background: #4299e1;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.retry-btn:hover {
+  background: #3182ce;
+}
+
+.retry-btn:active {
+  transform: scale(0.98);
+}
+
+/* --- 紙吹雪キャンバス --- */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* --- ユーティリティ --- */
+.hidden {
+  display: none;
+}

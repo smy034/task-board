@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Start-Process \"c:\\\\Users\\\\�p�J\\\\Documents\\\\quiz-app\\\\index.html\")"
+    ]
+  }
+}

@@ -47,3 +47,10 @@ index.html を右クリック → "Open with Live Server"
 
 - 外部APIやサーバーへの通信は行わない（完全にクライアントサイドで動作）
 - `localStorage` を使って成績を保存する場合はその旨をコメントに明記する
+
+## GitHubリポジトリ
+
+https://github.com/smy034/quiz-app.git
+
+## GitHubリポジトリ
+https://github.com/smy034/quiz-app

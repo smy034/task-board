@@ -1,22 +1,22 @@
-# quiz-app
+# task-board
 
-一般常識クイズアプリ。HTML/CSS/JavaScriptのみで構成されたフロントエンド専用アプリ。
+タスクボードアプリ。React（CDN）+ Vanilla CSS で構成されたフロントエンド専用アプリ。
 
 ## 技術スタック
 
 - HTML5
 - CSS3
-- Vanilla JavaScript（フレームワーク・ライブラリなし）
+- React 18（CDN 経由 / UMD ビルド）
+- Babel Standalone（ブラウザ内で JSX をトランスパイル）
 - ビルドツール・パッケージマネージャなし（`npm install` 不要）
 
 ## プロジェクト構造
 
 ```
-quiz-app/
-├── index.html        # エントリーポイント
-├── style.css         # スタイル
-├── script.js         # クイズロジック
-└── questions.js      # 問題データ（または questions.json）
+task-board/
+├── index.html   # エントリーポイント。React/ReactDOM/Babel の CDN を読み込む
+├── style.css    # スタイル
+└── app.js       # React コンポーネント（JSX）
 ```
 
 ## 開発・動作確認
@@ -26,6 +26,9 @@ quiz-app/
 ```
 # VS Code の Live Server 拡張を使う場合
 index.html を右クリック → "Open with Live Server"
+
+# Python の簡易サーバーを使う場合
+python -m http.server 8080
 ```
 
 ## コーディング規約
@@ -33,22 +36,36 @@ index.html を右クリック → "Open with Live Server"
 - インデントはスペース2文字
 - セミコロンあり
 - `var` は使用しない（`const` / `let` を使う）
-- DOM操作は `document.querySelector` / `querySelectorAll` を使用
 - コメントは日本語で記述してよい
+
+## コンポーネント命名規約
+
+- コンポーネント名は **PascalCase**（例: `TaskItem`, `TaskInput`）
+- props のコールバックは **on + 動詞** の形式（例: `onAdd`, `onToggle`, `onDelete`）
+- CSS クラス名は **kebab-case**（例: `task-item`, `add-btn`, `task-count`）
+- ルートコンポーネントは `App`
 
 ## 機能概要
 
-- 一般常識の問題をランダム出題
-- 4択形式（正解1つ）
-- 正誤判定と得点集計
-- 全問終了後にスコア表示
+- テキスト入力でタスクを追加（Enter キーまたは「追加」ボタン）
+- チェックボックスで完了・未完了を切り替え
+- 完了済みタスクはグレー＋打ち消し線で表示
+- タスクを削除
+- タスクは `localStorage`（キー: `task-board-tasks`）に保存し、リロードしても消えない
 
 ## 注意事項
 
-- 外部APIやサーバーへの通信は行わない（完全にクライアントサイドで動作）
-- `localStorage` を使って成績を保存する場合はその旨をコメントに明記する
+- 外部 API やサーバーへの通信は行わない（完全にクライアントサイドで動作）
+- `localStorage` を使ってタスクを保存している（キー: `task-board-tasks`）
 
 ## GitHubリポジトリ
 
 https://github.com/smy034/task-board.git
 
+## デプロイ先
+
+https://github.com/smy034/task-board
+
+## GitHubリポジトリ
+
+https://github.com/smy034/task-board

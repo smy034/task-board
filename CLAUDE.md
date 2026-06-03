@@ -52,5 +52,3 @@ index.html を右クリック → "Open with Live Server"
 
 https://github.com/smy034/quiz-app.git
 
-## GitHubリポジトリ
-https://github.com/smy034/quiz-app
